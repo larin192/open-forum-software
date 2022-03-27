@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('category_id');
-            $table->boolean('closed');
-            $table->boolean('status');
+            $table->unsignedBigInteger('category_id')->default(0);
+            $table->unsignedBigInteger('first_reply_id');
+            $table->boolean('closed')->default(0);
+            $table->boolean('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

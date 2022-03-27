@@ -20,6 +20,7 @@ return new class extends Migration
         Schema::table('subjects', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('category_id')->references('id')->on('subject_categories');
+            $table->foreign('first_reply_id')->references('id')->on('replies');
         });
     }
 
