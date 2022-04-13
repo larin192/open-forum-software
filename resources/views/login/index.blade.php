@@ -1,4 +1,18 @@
-<x-layout>
+<x-layout type="login-page">
+    <section class="login-wrapper">
+        <div class="credentials">
+            <form class="form-control" action="/login" method="post">
+                @csrf
+                <input type="email" name="email" placeholder="Adres e-mail">
+                <input type="password" name="password" placeholder="Hasło">
+                <button type="submit">Zaloguj się</button>
+            </form>
+            <a href="{{ route('index') }}">Powrót na stronę główną</a>
+        </div>
+        <div class="info">
+            Lorem ipsum dolor <span>sit amet.</span>
+        </div>
+    </section>
     @if (session('status'))
         {{ session('status') }}
         {{ session('message') }}
@@ -10,11 +24,4 @@
             @endforeach
         </ul>
     @endif
-    <form action="/login" method="post" style="display:flex;flex-direction: column;row-gap: 20px;width:200px;margin-bottom: 40px;">
-        @csrf
-        <input type="email" name="email" placeholder="Adres e-mail">
-        <input type="password" name="password" placeholder="Hasło">
-        <button type="submit">Zaloguj się</button>
-    </form>
-    <a href="{{ route('index') }}">Powrót na stronę główną</a>
 </x-layout>
