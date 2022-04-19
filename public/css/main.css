@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap);
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -19,9 +20,42 @@ html {
 }
 
 body {
-  background: #373B44;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #4286f4, #373B44);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #161616;
+  font-family: "Hind", sans-serif;
+  color: #fff;
+}
+
+header {
+  position: relative;
+}
+header .logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 20px;
+}
+header .logo h1 {
+  font-weight: 300;
+  letter-spacing: -0.15rem;
+}
+header .logo svg {
+  cursor: pointer;
+  fill: #fff;
+}
+header nav {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background-color: #161616;
+}
+header nav.show {
+  display: block;
+}
+header nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
 }

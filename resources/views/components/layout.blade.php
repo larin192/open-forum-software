@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 <body @if($type) class="{{ $type }}" @endif>
+    <x-header></x-header>
     {{ $slot }}
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
