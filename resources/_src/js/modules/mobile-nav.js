@@ -2,14 +2,14 @@ var navigation = {
         svgElement: $('.logo>svg'),
         navigationBody: $('nav'),
         init: function () {
-            this.initEventListeners();
+            navigation.initEventListeners();
         },
         initEventListeners: function () {
-            $(this.svgElement).on('click', this.toggle);
+            $(navigation.svgElement).on('click', navigation.toggle);
         },
         toggle: function () {
-            $(this.navigationBody).toggleClass('show');
+            $(navigation.navigationBody).toggleClass('show');
         }
     };
 
-export { navigation };
+module.exports = navigation;

@@ -10,9 +10,10 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+mix.sass('resources/_src/css/main.scss', 'css');
 mix
-    .sass('resources/_src/css/main.scss', 'css')
     .js('resources/_src/js/app.js', 'js')
+    .sourceMaps()
     .autoload({
         'jquery': ['$', 'window.$', 'window.jQuery'],
     });

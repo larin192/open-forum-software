@@ -35,14 +35,15 @@ header {
         }
     }
     nav {
-        display: none;
+        display: block;
+        max-height: 0;
         position: absolute;
         width: 100%;
         height: calc(100vh - 70px);
         background-color: $background-color;
 
         &.show {
-            display: block;
+            max-height: calc(100vh - 70px);
         }
         ul {
             display: flex;
@@ -50,8 +51,8 @@ header {
             justify-content: center;
             align-items: center;
             list-style-type: none;
+            height: calc(100vh - 70px);
             li {
-
             }
         }
     }
