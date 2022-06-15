@@ -1,4 +1,2 @@
-require('./bootstrap');
-window.nav = require('./modules/mobile-nav.js');
-
-nav.init();
+navigation.init();
+console.log('tes123t');

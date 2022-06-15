@@ -11,5 +11,3 @@ var navigation = {
             $(navigation.navigationBody).toggleClass('show');
         }
     };
-
-module.exports = navigation;
