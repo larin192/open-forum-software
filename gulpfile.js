@@ -14,13 +14,15 @@ var cssSourcePath = './resources/_src/css/*.scss',
     jsSourcePath = './resources/_src/js/',
     jsDestPath = './public/js/';
 
+const info = '[\x1b[32mINFO\x1b[0m]';
+
 function styles()
 {
     return gulp.src(cssSourcePath)
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(clean_css({debug: true}, (details) => {
-            console.log(`File ${details.name}: ${details.stats.originalSize} bytes => ${details.stats.minifiedSize} bytes (${parseFloat(details.stats.efficiency).toFixed(2)}% less)`);
+            console.log(info + ` File ${details.name}: ${parseFloat(details.stats.originalSize / 1024).toFixed(2)} kb => ${parseFloat(details.stats.minifiedSize / 1024).toFixed(2)} kb (${parseFloat(details.stats.efficiency).toFixed(2) * 100}% less)`);
         }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(cssDestPath))
@@ -52,7 +54,7 @@ function updateVersion(type, path) {
         if(versions[type] != hash) {
             versions[type] = hash;
             fs.writeFileSync('./version.json', JSON.stringify(versions, null, '\t'));
-            console.log(`${type.toUpperCase()} version updated`);
+            console.log(`${info} ${type.toUpperCase()} version updated`);
         }
     })
 }
