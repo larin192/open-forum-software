@@ -21,16 +21,23 @@ class SubjectCategory extends Model
      *
      * @return array|Model[]
      */
-    public static function getIndexCategories()
+    public static function getIndexCategories(?bool $withChildren = false)
     {
-        $categories = SubjectCategory::all()->where('parent', '=', 0)->all();
+        $categories = SubjectCategory::query()
+            ->where('parent', '=', 0)
+            ->where('status', '=', 1);
 
-        return $categories;
+        if($withChildren) $categories->with(['children' => function ($query) {
+            $query->where('status', '=', 1);
+        }]);
+
+        return $categories->get()->all();
     }
 
     public function getSubCategories()
     {
-        return $this->children()->get()->where('status', '=', 1)->all();
+        //return $this->children()->get()->where('status', '=', 1)->all();
+        //return $this->with('children')->get()->where('status', '=', 1)->all();
     }
 
     public function children()

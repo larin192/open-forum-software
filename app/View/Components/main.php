@@ -16,7 +16,7 @@ class main extends Component
      */
     public function __construct()
     {
-        $this->categories = SubjectCategory::getIndexCategories();
+        $this->categories = SubjectCategory::getIndexCategories(true);
     }
 
     /**

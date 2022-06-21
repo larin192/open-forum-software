@@ -5,7 +5,14 @@
         </div>
         <div class="main-content__content">
             <div class="main-content__category-list">
-                Kolumna pierwsza
+                @foreach($categories as $category)
+                    <div class="main-content__category-header">
+                        {{ $category->name }}
+                    </div>
+                    @foreach($category->children as $child)
+                        {{ $child->name }}
+                    @endforeach
+                @endforeach
             </div>
             <div class="main-content__widgets-list">
                 Kolumna druga
