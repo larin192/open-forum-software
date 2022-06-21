@@ -96,4 +96,25 @@ a {
         background-color: #fff;
         color: #161616;
     }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        @include media-breakpoint-up(md) {
+            column-gap: 20px;
+        }
+    }
+
+    &__category-list {
+        width: 100%;
+        @include media-breakpoint-up(md) {
+            width: calc(70% - 10px);
+        }
+    }
+    &__widgets-list {
+        width: 100%;
+        @include media-breakpoint-up(md) {
+            width: calc(30% - 10px);
+        }
+    }
 }
