@@ -6,13 +6,16 @@ const gulp = require('gulp'),
     clean_css = require('gulp-clean-css'),
     concat = require('gulp-concat'),
     terser = require('gulp-terser'),
+    imagemin = require('gulp-imagemin'),
     fs = require('fs'),
     md5 = require('md5');
 
 var cssSourcePath = './resources/_src/css/*.scss',
     cssDestPath = './public/css/',
     jsSourcePath = './resources/_src/js/',
-    jsDestPath = './public/js/';
+    jsDestPath = './public/js/',
+    imgSourcePath = './resources/_src/img/',
+    imgDestPath = './public/img/';
 
 const info = '[\x1b[32mINFO\x1b[0m]';
 
@@ -44,6 +47,13 @@ function scripts()
         });
 }
 
+function imgmin()
+{
+    return gulp.src(imgSourcePath + '/min/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest(imgDestPath));
+}
+
 function updateVersion(type, path) {
     fs.readFile('./version.json', function (err, data) {
         if(err) throw err;
@@ -61,3 +71,4 @@ function updateVersion(type, path) {
 
 exports.styles = styles;
 exports.scripts = scripts;
+exports.imagemin = imgmin;

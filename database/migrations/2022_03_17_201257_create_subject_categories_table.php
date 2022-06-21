@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('subject_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('body');
-            $table->boolean('closed');
-            $table->boolean('status');
+            $table->string('name_url');
+            $table->text('body')->nullable();
+            $table->unsignedBigInteger('parent')->default(0);
+            $table->boolean('closed')->default(0);
+            $table->boolean('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
