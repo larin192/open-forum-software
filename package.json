@@ -1,24 +1,33 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
-    },
-    "devDependencies": {
-        "axios": "^0.25",
-        "laravel-mix": "^6.0.6",
-        "lodash": "^4.17.19",
-        "postcss": "^8.1.14",
-        "resolve-url-loader": "^5.0.0",
-        "sass": "^1.49.9",
-        "sass-loader": "^12.6.0"
-    },
-    "dependencies": {
-        "jquery": "^3.6.0"
-    }
+  "name": "ofs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larin192/open-forum-software.git"
+  },
+  "author": "Marcel <larin192>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/larin192/open-forum-software/issues"
+  },
+  "homepage": "https://github.com/larin192/open-forum-software#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.1.0",
+    "md5": "^2.3.0",
+    "sass": "^1.52.3"
+  }
 }

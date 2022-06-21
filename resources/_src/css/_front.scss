@@ -13,47 +13,87 @@ html {
     }
 }
 body {
-    background: $background-color;
+    background: #ddd;
     font-family: $font-family;
     color: $text-primary-color;
-}
-header {
-    position: relative;
 
-    .logo {
+    @include media-breakpoint-down(md) {
+        &.nav-visible {
+            overflow-y: hidden;
+        }
+    }
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+.header {
+    background-color: $background-color;
+
+    &.container {
+        padding-top: 0;
+    }
+    &__logo {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 11px 20px;
-        h1 {
-            font-weight: 300;
-            letter-spacing: -0.15rem;
-        }
-        svg {
-            cursor: pointer;
-            fill: $text-primary-color;
+        max-height: 90px;
+    }
+
+    &__background {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-weight: 300;
+        letter-spacing: -0.15rem;
+    }
+
+    &__hamburger {
+        display: none;
+        fill: $text-primary-color;
+        @include media-breakpoint-down(md) {
+            display: inline;
         }
     }
-    nav {
-        display: block;
-        max-height: 0;
-        position: absolute;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background-color: $background-color;
 
-        &.show {
-            max-height: calc(100vh - 70px);
+    &__nav-container {
+        @include media-breakpoint-down(md) {
+            position: absolute;
+            top: 78px;
+            right: 0;
+            width: 100%;
+            height: calc(100vh - 78px);
+            max-height: 0;
+            transition: max-height 0.2s ease-in-out;
+            background-color: #161616;
+            z-index: 5;
+            overflow: hidden;
         }
-        ul {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            list-style-type: none;
+        @include media-breakpoint-down(sm) {
             height: calc(100vh - 70px);
-            li {
-            }
+            top: 70px;
         }
+        &.show {
+            max-height: calc(100vh - 70px)
+        }
+    }
+
+    &__nav {
+        list-style-type: none;
+        display: flex;
+        gap: 20px;
+    }
+}
+.main-content {
+    position: relative;
+    top: -160px;
+
+    &__container {
+        background-color: #fff;
+        color: #161616;
     }
 }
