@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('name_url');
             $table->text('body')->nullable();
+            $table->text('short_body')->nullable();
             $table->unsignedBigInteger('parent')->default(0);
             $table->boolean('closed')->default(0);
             $table->boolean('status')->default(1);
